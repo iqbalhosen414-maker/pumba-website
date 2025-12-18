@@ -1,84 +1,391 @@
-<section class="hero reveal show" id="top" style="
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.50), rgba(0,0,0,.72)),
-    url('banner.gif') center/cover no-repeat;
-">
-  <div class="heroInner">
-    <div>
-      <div class="pills">
-        <span class="pill">Discord: pumba_008</span>
-        <span class="pill">Creator portfolio</span>
-        <span class="pill">Open to collabs</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Iqbal Hossain (Pumba) — creator portfolio: gaming energy + business-ready collaborations." />
+  <title>Pumba — Gaming × Business</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#070812;
+      --bg2:#0a0c18;
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+
+      --p1:#7c3aed;   /* purple */
+      --p2:#22d3ee;   /* cyan */
+      --p3:#ff4dd8;   /* pink */
+
+      --radius:18px;
+      --radius2:26px;
+      --shadow: 0 22px 75px rgba(0,0,0,.55);
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 650px at 14% 10%, rgba(124,58,237,.20), transparent 55%),
+        radial-gradient(900px 600px at 86% 18%, rgba(34,211,238,.16), transparent 55%),
+        radial-gradient(900px 700px at 55% 92%, rgba(255,77,216,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none;}
+    a:hover{opacity:.92;}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px;}
+
+    .top{
+      position:sticky;top:14px;z-index:30;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 38px rgba(0,0,0,.35);
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:220px;}
+    .logo{
+      width:38px;height:38px;border-radius:14px;
+      background: linear-gradient(135deg, var(--p1), var(--p2));
+      box-shadow: 0 18px 45px rgba(124,58,237,.22);
+      position:relative;overflow:hidden;
+    }
+    .logo:after{
+      content:"";position:absolute;inset:-60%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%);
+      transform: rotate(20deg);
+    }
+    .brand b{font-weight:900;letter-spacing:-.02em;}
+    .brand small{display:block;color:var(--muted);font-weight:700;margin-top:1px}
+
+    nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+    nav a{
+      padding:8px 10px;border-radius:999px;
+      color:var(--muted);font-weight:800;font-size:.95rem;
+      border:1px solid transparent;
+    }
+    nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.05);}
+
+    .hero{
+      margin-top:18px;
+      border-radius:var(--radius2);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+      min-height:520px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.78)),
+        url('banner.gif') center/cover no-repeat;
+    }
+
+    .heroInner{
+      position:relative;
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(2.1rem, 5vw, 3.35rem);
+      line-height:1.05;
+      letter-spacing:-.04em;
+      text-shadow: 0 10px 40px rgba(0,0,0,.55);
+    }
+
+    .grad{
+      background: linear-gradient(135deg, var(--p1), var(--p2), var(--p3));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+
+    .lead{
+      margin:12px 0 0;
+      color:rgba(255,255,255,.82);
+      font-size:1.05rem;
+      max-width:70ch;
+      text-shadow: 0 10px 30px rgba(0,0,0,.50);
+    }
+
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+    .pill{
+      padding:7px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.30);
+      color:rgba(255,255,255,.90);
+      font-weight:800;font-size:.9rem;
+    }
+
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color:var(--text);
+      font-weight:900;
+      box-shadow: 0 14px 35px rgba(0,0,0,.22);
+    }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--p1), var(--p2));
+      color:#071018;
+    }
+    .btn.ghost{background: rgba(0,0,0,.28);}
+
+    .side{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.30);
+      backdrop-filter: blur(10px);
+      padding:16px;
+    }
+    .side h3{margin:0 0 6px;font-size:1rem;}
+    .muted{color:var(--muted);}
+
+    .quick{display:grid;gap:10px;margin-top:10px;}
+    .q{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      padding:12px;
+    }
+    .q b{display:block;margin-bottom:6px;}
+    .q a{ text-decoration: underline; text-decoration-color: rgba(34,211,238,.35); }
+
+    .avatarCard{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.30);
+      padding:14px;
+      text-align:center;
+      margin-bottom:12px;
+    }
+    .avatarCard img{
+      width:110px;height:110px;border-radius:28px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 60px rgba(124,58,237,.25), 0 0 40px rgba(34,211,238,.18);
+      object-fit:cover;
+    }
+
+    .section{
+      margin-top:18px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 12px 40px rgba(0,0,0,.22);
+      overflow:hidden;
+    }
+    .head{
+      padding:16px 18px;
+      display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .head h2{margin:0;font-size:1.12rem;}
+    .body{padding:18px;}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;}
+    .col4{grid-column: span 4;}
+    .col6{grid-column: span 6;}
+    .col8{grid-column: span 8;}
+    .col12{grid-column: span 12;}
+
+    .tile{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      padding:14px;
+    }
+    .tile b{display:block;margin-bottom:6px;}
+    .tile p{margin:0;color:var(--muted);}
+
+    footer{
+      margin:18px 0 10px;
+      padding:14px 16px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius2);
+      background: rgba(0,0,0,.25);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media(max-width:980px){ .heroInner{grid-template-columns:1fr;} }
+    @media(max-width:760px){
+      nav{display:none;}
+      .col4,.col6,.col8{grid-column: span 12;}
+      .top{border-radius:var(--radius2);}
+      .btn{width:100%;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <b>Pumba</b> <span style="color:var(--muted);font-weight:800;">/ Iqbal Hossain</span>
+          <small>Gaming × Creator × Business</small>
+        </div>
       </div>
 
-      <h1>
-        A creator site that feels <span class="grad">premium</span>.<br/>
-        Gaming energy — business ready.
-      </h1>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#business">Business</a>
+        <a href="#social">Social</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-      <p class="lead">
-        I’m <b>Pumba</b> (Iqbal Hossain) — I make gaming edits/content and I’m also open to professional collaborations.
-        If you want promos, content packages, or creator-style brand work, let’s talk.
-      </p>
-
-      <div class="cta">
-        <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
-        <a class="btn ghost" href="#business">Work with me</a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
-
-      <div class="split" style="margin-top:14px">
-        <div class="badge"><span class="dot"></span> Clean edits</div>
-        <div class="badge"><span class="dot"></span> Consistent growth</div>
-        <div class="badge"><span class="dot"></span> Brand-friendly</div>
-      </div>
-    </div>
-
-    <aside class="side" style="display:grid; gap:12px;">
-      <!-- Avatar card -->
-      <div style="
-        border-radius: 18px;
-        border:1px solid rgba(255,255,255,.12);
-        background: rgba(0,0,0,.28);
-        padding: 14px;
-        text-align:center;
-      ">
-        <img src="avatar.gif" alt="Pumba avatar" style="
-          width: 110px; height: 110px; border-radius: 28px;
-          border: 1px solid rgba(255,255,255,.18);
-          box-shadow: 0 18px 60px rgba(124,58,237,.25), 0 0 40px rgba(34,211,238,.18);
-          object-fit: cover;
-        ">
-        <div style="margin-top:10px; font-weight:900; font-size:1.05rem;">Pumba</div>
-        <div class="muted" style="font-weight:800;">Gaming × Creator × Business</div>
-      </div>
-
-      <!-- Quick links -->
-      <div>
-        <h3 style="margin:0 0 6px;">Quick links</h3>
-        <div class="muted">Fast access to socials and music.</div>
-
-        <div class="quick">
-          <div class="q">
-            <b>Spotify</b>
-            <a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">
-              Open my profile →
-            </a>
+    <section class="hero" id="top">
+      <div class="heroInner">
+        <div>
+          <div class="pills">
+            <span class="pill">Discord: pumba_008</span>
+            <span class="pill">Creator portfolio</span>
+            <span class="pill">Open to collabs</span>
           </div>
-          <div class="q">
-            <b>Instagram</b>
-            <a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a>
+
+          <h1>
+            A creator site that feels <span class="grad">premium</span>.<br/>
+            Gaming energy — business ready.
+          </h1>
+
+          <p class="lead">
+            I’m <b>Pumba</b> (Iqbal Hossain) — I make gaming edits/content and I’m also open to professional collaborations.
+            If you want promos, content packages, or creator-style brand work, let’s talk.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+            <a class="btn ghost" href="#business">Work with me</a>
+            <a class="btn" href="#contact">Contact</a>
           </div>
-          <div class="q">
-            <b>Facebook</b>
-            <a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Profile →</a>
+        </div>
+
+        <aside class="side">
+          <div class="avatarCard">
+            <img src="avatar.gif" alt="Pumba avatar">
+            <div style="margin-top:10px; font-weight:900; font-size:1.05rem;">Pumba</div>
+            <div class="muted" style="font-weight:800;">Gaming × Creator × Business</div>
           </div>
-          <div class="q">
-            <b>Discord</b>
-            <div class="muted">pumba_008</div>
+
+          <h3>Quick links</h3>
+          <div class="muted">Fast access to socials and music.</div>
+
+          <div class="quick">
+            <div class="q">
+              <b>Spotify</b>
+              <a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">
+                Open my profile →
+              </a>
+            </div>
+            <div class="q">
+              <b>Instagram</b>
+              <a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a>
+            </div>
+            <div class="q">
+              <b>Facebook</b>
+              <a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Profile →</a>
+            </div>
+            <div class="q">
+              <b>Discord</b>
+              <div class="muted">pumba_008</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="head">
+        <h2>About</h2>
+        <div class="muted">A clean intro</div>
+      </div>
+      <div class="body">
+        <div class="grid">
+          <div class="col8">
+            <div class="tile">
+              <b>Who I am</b>
+              <p>I’m Iqbal Hossain — online I go by <b style="color:var(--text)">Pumba</b>. I create gaming-focused edits/content with a clean aesthetic and I’m building a professional creator presence.</p>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="tile">
+              <b>Focus</b>
+              <p>Gaming • Editing • Content • Community • Growth</p>
+            </div>
           </div>
         </div>
       </div>
-    </aside>
+    </section>
+
+    <section class="section" id="business">
+      <div class="head">
+        <h2>Business</h2>
+        <div class="muted">Collabs + services</div>
+      </div>
+      <div class="body">
+        <div class="grid">
+          <div class="col6"><div class="tile"><b>Promotions</b><p>Creator-style promos, shoutouts, and product highlights.</p></div></div>
+          <div class="col6"><div class="tile"><b>Content packages</b><p>Short-form edits for Shorts/Reels/TikTok delivery.</p></div></div>
+          <div class="col12"><div class="tile"><b>Fastest contact</b><p>Discord: <b style="color:var(--text)">pumba_008</b></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="social">
+      <div class="head">
+        <h2>Social</h2>
+        <div class="muted">Links</div>
+      </div>
+      <div class="body">
+        <div class="grid">
+          <div class="col6"><div class="tile"><b>YouTube</b><p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>Spotify</b><p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>Instagram</b><p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>Facebook</b><p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="head">
+        <h2>Contact</h2>
+        <div class="muted">Let’s connect</div>
+      </div>
+      <div class="body">
+        <div class="tile">
+          <b>Best</b>
+          <p>Discord: <b style="color:var(--text)">pumba_008</b></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Pumba / Iqbal Hossain
+    </footer>
   </div>
-</section>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
