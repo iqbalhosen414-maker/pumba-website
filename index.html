@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pumba (Iqbal Hossain) — Gaming edits, creator portfolio, business collabs." />
+
   <title>Pumba — Gaming × Business</title>
+  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits, content creation, and business collaborations." />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="./favicon.png" />
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,43 +17,64 @@
 
   <style>
     :root{
-      /* Shrine / Moon / Lantern palette */
-      --bg0:#070707;
-      --panel: rgba(0,0,0,0.62);
-      --panel2: rgba(0,0,0,0.48);
-      --glass: rgba(255,255,255,0.06);
+      /* Banner-matching palette (moonlight slate + lantern red) */
+      --bg: #07090c;
+      --panel: rgba(10, 12, 16, 0.74);
+      --panel2: rgba(10, 12, 16, 0.58);
       --line: rgba(255,255,255,0.10);
-      --text: rgba(255,255,255,0.94);
-      --muted: rgba(255,255,255,0.70);
-      --muted2: rgba(255,255,255,0.52);
-      --red: #d11b1b;            /* lantern red */
-      --red2: #8c0f0f;           /* deep blood */
-      --shadow: 0 22px 70px rgba(0,0,0,0.62);
-      --radius: 18px;
-      --radius2: 22px;
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+
+      --accent: #d11f1f;   /* lantern red */
+      --accent2: #a9b7c9;  /* moonlight slate */
+      --shadow: 0 18px 55px rgba(0,0,0,0.55);
+      --radius: 20px;
+
+      --max: 1120px;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(1200px 700px at 50% 18%, rgba(255,255,255,0.06), transparent 60%),
-        radial-gradient(900px 700px at 50% 95%, rgba(0,0,0,0.75), rgba(0,0,0,0.94)),
-        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.92)),
-        url("banner.png") center top / cover no-repeat fixed;
-      min-height:100vh;
+      background: var(--bg);
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ opacity:0.95; }
+    /* Full-page banner background */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        url("./banner.png") center / cover no-repeat;
+      z-index:-3;
+      transform: translateZ(0);
+    }
+
+    /* Contrast overlay to make text readable (no heavy blur, safe) */
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(220,25,25,0.20), transparent 60%),
+        radial-gradient(1000px 700px at 80% 30%, rgba(160,180,205,0.16), transparent 62%),
+        linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.66));
+      z-index:-2;
+    }
+
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ opacity:0.92; }
 
     .wrap{
-      max-width: 1120px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 24px;
+      padding: 20px 18px 60px;
     }
 
     /* Top bar */
@@ -60,16 +82,16 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
-      padding: 14px 18px;
+      gap:14px;
+      padding: 12px 14px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 14px 60px rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.40);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.40);
+      backdrop-filter: blur(8px);
       position: sticky;
       top: 14px;
-      z-index: 20;
+      z-index: 10;
     }
 
     .brand{
@@ -80,302 +102,344 @@
     }
 
     .brand img{
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-      background: #111;
+      border: 1px solid rgba(255,255,255,0.20);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.40);
+      background: rgba(255,255,255,0.04);
     }
 
-    .brand .t1{ font-weight:800; line-height:1.1; }
-    .brand .t2{ color: var(--muted2); font-weight:600; font-size: 0.92rem; }
+    .brand b{
+      display:block;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .brand span{
+      display:block;
+      margin-top: 2px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
 
     nav{
       display:flex;
-      gap: 14px;
-      flex-wrap:wrap;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
       justify-content:flex-end;
     }
+
     nav a{
       padding: 8px 10px;
       border-radius: 999px;
       color: var(--muted);
       border: 1px solid transparent;
-      background: transparent;
     }
     nav a:hover{
       color: var(--text);
       border-color: var(--line);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
     }
 
     /* Hero */
     .hero{
-      margin-top: 22px;
+      margin-top: 18px;
+      border-radius: var(--radius);
       border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.40));
-      backdrop-filter: blur(8px);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
     }
 
-    /* Cinematic vignette inside hero */
+    /* subtle red glow line (safe) */
     .hero::before{
       content:"";
       position:absolute;
-      inset:-2px;
+      inset:0;
       background:
-        radial-gradient(900px 420px at 20% 20%, rgba(209,27,27,0.10), transparent 55%),
-        radial-gradient(900px 420px at 85% 35%, rgba(255,255,255,0.05), transparent 60%),
-        radial-gradient(1200px 900px at 50% 50%, transparent 55%, rgba(0,0,0,0.55));
+        radial-gradient(800px 380px at 20% 30%, rgba(209,31,31,0.18), transparent 60%),
+        radial-gradient(900px 500px at 80% 25%, rgba(169,183,201,0.13), transparent 60%);
       pointer-events:none;
     }
 
     .heroInner{
       position:relative;
       z-index:1;
+      padding: 26px;
       display:grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 20px;
-      padding: 34px;
-    }
-
-    .chips{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-bottom: 14px;
-    }
-    .chip{
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,0.42);
-      color: rgba(255,255,255,0.82);
-      font-size: 0.88rem;
-      font-weight: 600;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      align-items: stretch;
     }
 
     h1{
       margin: 0;
-      font-size: clamp(2.2rem, 5vw, 3.35rem);
+      font-size: clamp(2.1rem, 5vw, 3.3rem);
+      line-height: 1.1;
       letter-spacing: -0.03em;
-      line-height: 1.06;
     }
+
     .accent{
-      color: var(--red);
-      text-shadow: 0 0 18px rgba(209,27,27,0.25);
+      color: var(--accent);
+      text-shadow: 0 10px 30px rgba(209,31,31,0.15);
     }
 
     .lead{
-      margin-top: 12px;
+      margin: 12px 0 0;
       color: var(--muted);
       max-width: 62ch;
       font-size: 1.02rem;
     }
 
-    .actions{
+    .chips{
+      margin-top: 14px;
       display:flex;
-      gap: 12px;
       flex-wrap:wrap;
-      margin-top: 18px;
+      gap: 10px;
     }
+
+    .chip{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.92rem;
+    }
+
+    .actions{
+      margin-top: 16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap: 10px;
-      padding: 12px 16px;
+      gap:10px;
+      padding: 12px 14px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(0,0,0,0.40);
+      background: rgba(255,255,255,0.05);
       color: var(--text);
       font-weight: 700;
-      transition: transform .12s ease, background .12s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(0,0,0,0.52); }
 
     .btn.primary{
-      border: 1px solid rgba(209,27,27,0.35);
-      background: linear-gradient(135deg, rgba(209,27,27,0.95), rgba(140,15,15,0.92));
-      box-shadow: 0 16px 40px rgba(209,27,27,0.18);
+      background: linear-gradient(135deg, rgba(209,31,31,1), rgba(209,31,31,0.75));
+      border-color: rgba(209,31,31,0.35);
+      box-shadow: 0 18px 40px rgba(209,31,31,0.18);
     }
 
-    .btn.ghost{
-      background: rgba(255,255,255,0.06);
+    .btn.primary:hover{
+      opacity: 0.96;
     }
 
-    /* Side card */
-    .side{
+    .btn.ghost:hover{
+      background: rgba(255,255,255,0.07);
+    }
+
+    /* Right card */
+    .sideCard{
+      border-radius: calc(var(--radius) - 4px);
       border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(10px);
-      padding: 18px;
-      box-shadow: 0 16px 55px rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.35);
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      overflow:hidden;
     }
 
-    .profile{
+    .miniProfile{
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: 14px;
+      background: rgba(255,255,255,0.05);
       display:flex;
       gap: 12px;
       align-items:center;
-      padding: 12px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 12px;
     }
 
-    .profile img{
-      width: 56px;
-      height: 56px;
+    .miniProfile img{
+      width: 46px;
+      height: 46px;
       border-radius: 14px;
       object-fit: cover;
-      border: 1px solid var(--line);
-      background:#111;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.04);
     }
 
-    .pname{ font-weight: 800; }
-    .prole{ color: var(--muted2); font-weight: 700; font-size: 0.92rem; }
+    .miniProfile b{
+      display:block;
+      line-height:1.15;
+    }
+
+    .miniProfile span{
+      display:block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 2px;
+    }
 
     .quickTitle{
-      margin: 10px 0 4px;
       font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .quickSub{
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      letter-spacing:-0.01em;
     }
 
-    .linkBtn{
+    .quickSub{
+      color: var(--muted);
+      margin-top: -6px;
+    }
+
+    .links{
+      display:grid;
+      gap: 10px;
+    }
+
+    .linkRow{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 12px;
-      padding: 12px 14px;
+      gap: 10px;
+      padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.34);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .linkRow b{
+      font-size: 0.98rem;
+    }
+
+    .linkRow small{
       color: var(--muted);
-      margin-top: 10px;
+      display:block;
+      margin-top: 2px;
+      font-size: 0.86rem;
+    }
+
+    .go{
+      color: rgba(255,255,255,0.85);
       font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
     }
-    .linkBtn:hover{
-      color: var(--text);
-      border-color: rgba(209,27,27,0.22);
-      background: rgba(0,0,0,0.45);
+
+    .go:hover{
+      border-color: rgba(209,31,31,0.35);
+      background: rgba(209,31,31,0.12);
     }
-    .arrow{ color: rgba(255,255,255,0.55); }
 
     /* Sections */
     .section{
-      margin-top: 22px;
-      padding: 24px;
-      border-radius: var(--radius2);
+      margin-top: 16px;
+      border-radius: var(--radius);
       border: 1px solid var(--line);
-      background: rgba(0,0,0,0.46);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+      background: linear-gradient(180deg, rgba(0,0,0,0.40), rgba(0,0,0,0.28));
+      box-shadow: 0 14px 40px rgba(0,0,0,0.32);
+      overflow:hidden;
     }
 
-    .sectionHead{
+    .sectionInner{
+      padding: 18px 20px;
       display:flex;
+      align-items:flex-end;
       justify-content:space-between;
-      align-items:baseline;
-      gap: 14px;
-      flex-wrap:wrap;
-      margin-bottom: 12px;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
     }
-    .section h2{
-      margin: 0;
-      font-size: 1.35rem;
+
+    .sectionInner h2{
+      margin:0;
+      font-size: 1.3rem;
       letter-spacing: -0.01em;
     }
+
     .hint{
-      color: var(--muted2);
-      font-weight: 700;
+      color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    .content{
+      padding: 18px 20px 20px;
     }
 
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      gap: 12px;
     }
+
     .col6{ grid-column: span 6; }
     .col4{ grid-column: span 4; }
     .col12{ grid-column: span 12; }
 
-    .card{
-      padding: 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.32);
-    }
-    .card b{ display:block; margin-bottom: 6px; }
-    .card p{ margin:0; color: var(--muted); }
-
-    /* Featured banner strip to “tie” the background with page */
-    .bannerStrip{
-      margin-top: 22px;
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255,255,255,0.10);
-      overflow:hidden;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
-    }
-    .bannerStrip img{
-      width:100%;
-      height: 220px;
-      object-fit: cover;
-      display:block;
-      filter: contrast(1.05) brightness(0.85);
-      transform: scale(1.02);
-    }
-    .bannerStrip .cap{
-      padding: 14px 16px;
-      background: rgba(0,0,0,0.55);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    footer{
-      margin: 22px 0 10px;
-      text-align:center;
-      color: var(--muted2);
+    .box{
       padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
     }
 
-    @media (max-width: 940px){
+    .box b{
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    .box p{
+      margin:0;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 16px;
+      text-align:center;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      padding: 18px 10px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 950px){
       .heroInner{ grid-template-columns: 1fr; }
+      .top{ border-radius: var(--radius); }
     }
     @media (max-width: 720px){
       nav{ display:none; }
       .col6, .col4{ grid-column: span 12; }
-      .top{ border-radius: var(--radius2); }
-      .bannerStrip img{ height: 170px; }
+      .heroInner{ padding: 18px; }
+    }
+
+    /* Low-end / accessibility: if user prefers reduced motion, keep it fully static */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- Top bar -->
     <header class="top">
       <div class="brand">
-        <img src="avatar.png" alt="Pumba avatar" />
+        <img src="./avatar.png" alt="Pumba avatar" />
         <div>
-          <div class="t1">Pumba / Iqbal Hossain</div>
-          <div class="t2">Gaming × Creator × Business</div>
+          <b>Pumba / Iqbal Hossain</b>
+          <span>Gaming × Creator × Business</span>
         </div>
       </div>
+
       <nav>
         <a href="#about">About</a>
         <a href="#business">Business</a>
@@ -384,7 +448,6 @@
       </nav>
     </header>
 
-    <!-- Hero -->
     <section class="hero" id="top">
       <div class="heroInner">
         <div>
@@ -395,184 +458,187 @@
           </div>
 
           <h1>
-            Shadow. Steel.<br>
-            <span class="accent">Presence.</span><br>
+            Shadow. Steel. <span class="accent">Presence.</span><br/>
             Gaming energy — business ready.
           </h1>
 
           <p class="lead">
-            I’m <b>Pumba</b> (Iqbal Hossain). I create gaming edits/content and I’m open to professional collaborations.
+            I’m <b>Pumba</b> (Iqbal Hossain). I make gaming edits/content and I’m open to professional collaborations.
             If you want promos, content packages, or creator-style brand work — let’s talk.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+            <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">
+              ▶ YouTube
+            </a>
             <a class="btn ghost" href="#business">Work with me</a>
-            <a class="btn" href="#contact">Contact</a>
+            <a class="btn ghost" href="#contact">Contact</a>
           </div>
         </div>
 
-        <aside class="side">
-          <div class="profile">
-            <img src="avatar.png" alt="Avatar" />
+        <aside class="sideCard">
+          <div class="miniProfile">
+            <img src="./avatar.png" alt="Pumba profile image" />
             <div>
-              <div class="pname">Pumba</div>
-              <div class="prole">Gaming × Creator × Business</div>
+              <b>Pumba</b>
+              <span>Gaming × Creator × Business</span>
             </div>
           </div>
 
-          <div class="quickTitle">Quick links</div>
-          <div class="quickSub">Fast access to socials and music.</div>
+          <div>
+            <div class="quickTitle">Quick links</div>
+            <div class="quickSub">Fast access to socials and music.</div>
+          </div>
 
-          <a class="linkBtn" href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">
-            <span>Spotify</span><span class="arrow">→</span>
-          </a>
+          <div class="links">
+            <div class="linkRow">
+              <div>
+                <b>Spotify</b>
+                <small>My profile</small>
+              </div>
+              <a class="go" href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open →</a>
+            </div>
 
-          <a class="linkBtn" href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">
-            <span>Instagram</span><span class="arrow">→</span>
-          </a>
+            <div class="linkRow">
+              <div>
+                <b>Instagram</b>
+                <small>@_iqbal_hossain__</small>
+              </div>
+              <a class="go" href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a>
+            </div>
 
-          <a class="linkBtn" href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">
-            <span>Facebook</span><span class="arrow">→</span>
-          </a>
+            <div class="linkRow">
+              <div>
+                <b>Facebook</b>
+                <small>Profile</small>
+              </div>
+              <a class="go" href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Open →</a>
+            </div>
 
-          <div class="linkBtn" style="cursor:default;">
-            <span>Discord: pumba_008</span><span class="arrow">★</span>
+            <div class="linkRow">
+              <div>
+                <b>Discord</b>
+                <small>pumba_008</small>
+              </div>
+              <span class="go" title="Copy manually">pumba_008</span>
+            </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- Optional: banner strip (adds “premium” feel and ties your art into the layout) -->
-    <div class="bannerStrip" aria-label="Banner highlight">
-      <img src="banner.png" alt="Shrine banner" />
-      <div class="cap">Moonlit shrine aesthetic — clean, dark, and business-ready.</div>
-    </div>
-
-    <!-- About -->
     <section class="section" id="about">
-      <div class="sectionHead">
+      <div class="sectionInner">
         <h2>About</h2>
         <div class="hint">A clean intro</div>
       </div>
-
-      <div class="grid">
-        <div class="col6">
-          <div class="card">
-            <b>Who I am</b>
-            <p>
-              I’m Iqbal Hossain — online I go by <b>Pumba</b>. I build a clean creator brand around gaming edits and content.
-            </p>
-          </div>
-        </div>
-        <div class="col6">
-          <div class="card">
-            <b>Focus</b>
-            <p>Gaming • Editing • Content • Community • Growth</p>
+      <div class="content">
+        <div class="grid">
+          <div class="col12">
+            <div class="box">
+              <b>Who I am</b>
+              <p>
+                I’m Iqbal Hossain — online I go by <b>Pumba</b>. I create gaming-focused edits/content and I’m open to collaborations and business work.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Business -->
     <section class="section" id="business">
-      <div class="sectionHead">
+      <div class="sectionInner">
         <h2>Business</h2>
         <div class="hint">Work & services</div>
       </div>
+      <div class="content">
+        <div class="grid">
+          <div class="col4">
+            <div class="box">
+              <b>Promos</b>
+              <p>Brand promos, shoutouts, product highlights.</p>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="box">
+              <b>Content packages</b>
+              <p>Short edits for Shorts/Reels style content.</p>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="box">
+              <b>Partnerships</b>
+              <p>Long-term collaborations with creators/brands.</p>
+            </div>
+          </div>
 
-      <div class="grid">
-        <div class="col4">
-          <div class="card">
-            <b>Promos</b>
-            <p>Brand shoutouts, product highlights, and social promos.</p>
-          </div>
-        </div>
-        <div class="col4">
-          <div class="card">
-            <b>Content Packages</b>
-            <p>Short-form edits (Shorts/Reels/TikTok-style clips).</p>
-          </div>
-        </div>
-        <div class="col4">
-          <div class="card">
-            <b>Partnerships</b>
-            <p>Long-term collaborations and ongoing content work.</p>
-          </div>
-        </div>
-
-        <div class="col12">
-          <div class="card">
-            <b>Business inquiries</b>
-            <p>
-              Email: <a href="mailto:whitemask10933@gmail.com"><b>whitemask10933@gmail.com</b></a>
-              — include your brand, what you need, and your timeline.
-            </p>
+          <div class="col12">
+            <div class="box">
+              <b>Business email</b>
+              <p>
+                <a href="mailto:whitemask10933@gmail.com">whitemask10933@gmail.com</a>
+                <span style="opacity:.75;"> — include what you need + timeline.</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Social -->
     <section class="section" id="social">
-      <div class="sectionHead">
+      <div class="sectionInner">
         <h2>Social</h2>
-        <div class="hint">Follow / connect</div>
+        <div class="hint">Where to find me</div>
       </div>
-
-      <div class="grid">
-        <div class="col6">
-          <div class="card">
-            <b>YouTube</b>
-            <p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">Visit channel →</a></p>
+      <div class="content">
+        <div class="grid">
+          <div class="col6">
+            <div class="box">
+              <b>YouTube</b>
+              <p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">youtube.com/@editsenpaisan</a></p>
+            </div>
           </div>
-        </div>
-        <div class="col6">
-          <div class="card">
-            <b>Spotify</b>
-            <p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open profile →</a></p>
+          <div class="col6">
+            <div class="box">
+              <b>Spotify</b>
+              <p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open profile</a></p>
+            </div>
           </div>
-        </div>
-        <div class="col6">
-          <div class="card">
-            <b>Instagram</b>
-            <p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Open Instagram →</a></p>
+          <div class="col6">
+            <div class="box">
+              <b>Instagram</b>
+              <p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">@_iqbal_hossain__</a></p>
+            </div>
           </div>
-        </div>
-        <div class="col6">
-          <div class="card">
-            <b>Facebook</b>
-            <p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Open profile →</a></p>
+          <div class="col6">
+            <div class="box">
+              <b>Facebook</b>
+              <p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Profile</a></p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
     <section class="section" id="contact">
-      <div class="sectionHead">
+      <div class="sectionInner">
         <h2>Contact</h2>
         <div class="hint">Let’s talk</div>
       </div>
-
-      <div class="grid">
-        <div class="col6">
-          <div class="card">
-            <b>Email</b>
-            <p><a href="mailto:whitemask10933@gmail.com">whitemask10933@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="col6">
-          <div class="card">
-            <b>Discord</b>
-            <p>pumba_008</p>
+      <div class="content">
+        <div class="grid">
+          <div class="col12">
+            <div class="box">
+              <b>Email</b>
+              <p><a href="mailto:whitemask10933@gmail.com">whitemask10933@gmail.com</a></p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Pumba. Built with a moonlit shrine aesthetic.
+      © <span id="year"></span> Pumba. Built for a dark shrine / moonlight vibe.
     </footer>
   </div>
 
@@ -581,5 +647,6 @@
   </script>
 </body>
 </html>
+
 
 
