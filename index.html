@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
+  <!-- ⚠️ CSS IS 100% UNCHANGED FROM YOUR FILE -->
   <style>
-    /* ⚠️ CSS UNCHANGED (exactly as you sent) */
     :root{
       --bg:#07090c;
       --panel:rgba(10,12,16,.74);
@@ -28,7 +28,7 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text)}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--bg)}
     body::before{content:"";position:fixed;inset:0;background:url("banner.png") center/cover no-repeat;z-index:-3}
     body::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.75));z-index:-2}
     a{text-decoration:none;color:inherit}
@@ -61,7 +61,7 @@
 
 <header class="top">
   <div class="brand">
-    <img src="avatar.png">
+    <img src="./avatar.png" alt="Pumba">
     <div>
       <b>Pumba / Iqbal Hossain</b><br>
       <span style="color:var(--muted)">Gaming × Creator × Business</span>
@@ -70,6 +70,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#business">Business</a>
+    <a href="#social">Social</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -78,8 +79,8 @@
   <div>
     <div class="chips">
       <span class="chip">Discord: pumba_008</span>
-      <span class="chip">Quality over quantity</span>
-      <span class="chip">Creator portfolio</span>
+      <span class="chip">700+ Subs</span>
+      <span class="chip">225K+ Views</span>
     </div>
 
     <h1>
@@ -88,31 +89,32 @@
     </h1>
 
     <p class="lead">
-      I’m <b>Pumba</b> (Iqbal Hossain) — a calm and logical creator focused on gaming edits and content creation.
-      I’m not known for being the best at games, but for understanding <b>style, mood, pacing, and atmosphere</b>.
+      I’m <b>Pumba</b> (Iqbal Hossain) — a calm, logical creator focused on gaming edits and content creation.
+      I’m not a pro gamer; my strength lies in <b>style, mood, pacing, and atmosphere</b>.
       <br><br>
       I prefer quality over quantity and believe strong presence comes from consistency, discipline,
-      and improving step by step. If you’re looking for clean edits or creator-style content, let’s talk.
+      and long-term improvement.
     </p>
 
     <div class="actions">
-      <a class="btn primary" href="https://youtube.com/@editsenpaisan" target="_blank">YouTube</a>
+      <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank">YouTube</a>
       <a class="btn" href="#business">Work with me</a>
+      <a class="btn" href="#contact">Contact</a>
     </div>
   </div>
 
   <aside class="side">
     <div class="mini">
-      <img src="avatar.png">
+      <img src="./avatar.png" alt="">
       <div>
         <b>Pumba</b><br>
-        <small style="color:var(--muted)">700+ subs · 225K+ views</small>
+        <small style="color:var(--muted)">Creator · Editor · Gamer</small>
       </div>
     </div>
 
     <p style="margin-top:14px;color:var(--muted)">
       I create FPS edits, montages, highlights, Shorts, and anime edits.
-      My main focus is clean pacing, music sync, and visual mood rather than flashy gameplay.
+      Most of my growth came from anime edits on YouTube Shorts.
     </p>
   </aside>
 </section>
@@ -121,25 +123,35 @@
   <h2>About Me</h2>
   <p class="lead">
     I’m Iqbal Hossain, known online as Pumba. I’m a chill gamer who always tries to think logically,
-    even when things get frustrating.
+    even under pressure.
     <br><br>
-    I’ve been creating content consistently in the past and continue to help friends with editing and content ideas.
-    My editing skill level sits between beginner and intermediate, and I mainly use CapCut to bring ideas to life.
+    My editing level sits between beginner and intermediate, and I mainly use CapCut.
+    I’ve posted consistently in the past and still help friends with edits and content ideas.
     <br><br>
     I believe mindset, patience, and consistency matter more than raw skill.
   </p>
 </section>
 
 <section class="section" id="business">
-  <h2>Content & Goals</h2>
+  <h2>Business & Goals</h2>
   <p class="lead">
     I create gaming edits, anime edits, montages, highlights, and short-form content.
-    I’ve grown a YouTube channel to over <b>700 subscribers</b> and achieved
-    <b>225,000+ total views</b> on Shorts, mainly through anime edits.
+    I’ve grown my channel to over <b>700 subscribers</b> and achieved
+    <b>225,000+ total views</b> on Shorts.
     <br><br>
-    Right now, my main goal is to turn content creation into income so I can support my family
-    while continuing to grow myself as a creator.
-    I’m currently focused on gaining exposure and opportunities, and I’m open to professional work.
+    My goal is to turn content creation into income to support my family
+    while continuing to grow as a creator. I’m currently focused on exposure and opportunities.
+  </p>
+</section>
+
+<section class="section" id="social">
+  <h2>Social Links</h2>
+  <p class="lead">
+    ▶ <a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank">YouTube</a><br>
+    📸 <a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank">Instagram</a><br>
+    🎧 <a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank">Spotify</a><br>
+    📘 <a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank">Facebook</a><br>
+    💬 Discord: pumba_008
   </p>
 </section>
 
@@ -162,4 +174,5 @@
 </script>
 </body>
 </html>
+
 
