@@ -3,287 +3,219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits + creator portfolio + business collaborations." />
+  <meta name="description" content="Pumba (Iqbal Hossain) — Gaming × Creator × Business" />
   <title>Pumba — Gaming × Business</title>
 
-  <!-- Favicon (tab icon) -->
+  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
 
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      /* Samurai / Shrine palette */
-      --bg:#050607;            /* ink black */
-      --bg2:#0b0d10;           /* charcoal */
-      --card: rgba(255,255,255,.05);
-      --card2: rgba(255,255,255,.08);
-      --line: rgba(255,255,255,.12);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-
-      /* Shrine reds + lantern warmth */
-      --p1:#d11a2a;            /* torii red */
-      --p2:#ff3b3b;            /* bright red */
-      --p3:#ffb86b;            /* warm lantern */
-
+      --bg:#070808;
+      --panel:rgba(255,255,255,.05);
+      --panel2:rgba(255,255,255,.07);
+      --line:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --red:#d11a1a;
+      --shadow: 0 18px 60px rgba(0,0,0,0.60);
       --radius:18px;
-      --radius2:26px;
-      --shadow: 0 22px 75px rgba(0,0,0,.62);
     }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.92}
 
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{
-      margin:0;
-      font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+
+    /* ✅ Banner background (uses banner.png) */
+    .heroBg{
+      border-radius:24px;
+      border:1px solid var(--line);
       background:
-        radial-gradient(1100px 700px at 20% 10%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(900px 600px at 85% 20%, rgba(255,59,59,.14), transparent 58%),
-        radial-gradient(1000px 700px at 50% 92%, rgba(255,184,107,.08), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      overflow-x:hidden;
-    }
-    a{color:inherit;text-decoration:none;}
-    a:hover{opacity:.92;}
-    .wrap{max-width:1120px;margin:0 auto;padding:24px;}
-
-    /* Top nav */
-    .top{
-      position:sticky;top:14px;z-index:30;
-      display:flex;align-items:center;justify-content:space-between;gap:14px;
-      padding:12px 14px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(0,0,0,.30);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 38px rgba(0,0,0,.35);
-    }
-    .brand{display:flex;align-items:center;gap:12px;min-width:240px;}
-    .logo{
-      width:44px;height:44px;border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow: 0 18px 60px rgba(209,26,42,.18);
-      background: rgba(255,255,255,.06);
-    }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block;}
-    .brand b{font-weight:900;letter-spacing:-.02em;}
-    .brand small{display:block;color:var(--muted);font-weight:700;margin-top:1px}
-
-    nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
-    nav a{
-      padding:8px 10px;border-radius:999px;
-      color:var(--muted);font-weight:800;font-size:.95rem;
-      border:1px solid transparent;
-    }
-    nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.05);}
-
-    /* Hero (banner as background) */
-    .hero{
-      margin-top:18px;
-      border-radius:var(--radius2);
-      border:1px solid var(--line);
+        linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.35)),
+        url("banner.png") center/cover no-repeat;
       box-shadow: var(--shadow);
-      position:relative;
       overflow:hidden;
-      min-height:520px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.82)),
-        url('banner.gif') center/cover no-repeat;
+      position:relative;
     }
 
-    .heroInner{
-      position:relative;
-      padding:28px;
+    /* Top nav pill */
+    .top{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.40);
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brandLogo{
+      width:44px;height:44px;border-radius:999px;
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      display:grid;place-items:center;
+    }
+    /* ✅ Small avatar in the top left */
+    .brandLogo img{width:100%;height:100%;object-fit:cover}
+
+    .brandText b{display:block;line-height:1.05}
+    .brandText span{color:var(--muted);font-size:.92rem}
+
+    nav{display:flex;gap:16px;flex-wrap:wrap}
+    nav a{color:var(--muted);font-weight:600;padding:8px 10px;border-radius:999px}
+    nav a:hover{color:var(--text);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+
+    /* Hero content layout */
+    .hero{
+      padding:22px;
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
-      align-items:stretch;
+      grid-template-columns: 1.25fr .85fr;
+      gap:18px;
+    }
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+      color:rgba(255,255,255,.85);
+      font-weight:600;font-size:.9rem;
     }
 
     h1{
-      margin:0;
-      font-size:clamp(2.1rem, 5vw, 3.35rem);
+      margin:8px 0 10px;
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
       line-height:1.05;
-      letter-spacing:-.04em;
-      text-shadow: 0 10px 40px rgba(0,0,0,.55);
+      letter-spacing:-0.03em;
     }
+    .accent{color:var(--red)}
+    .lead{margin:0;color:var(--muted);max-width:60ch}
 
-    .grad{
-      background: linear-gradient(135deg, var(--p1), var(--p2), var(--p3));
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-    }
-
-    .lead{
-      margin:12px 0 0;
-      color:rgba(255,255,255,.84);
-      font-size:1.05rem;
-      max-width:70ch;
-      text-shadow: 0 10px 30px rgba(0,0,0,.55);
-    }
-
-    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
-    .pill{
-      padding:7px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.35);
-      color:rgba(255,255,255,.92);
-      font-weight:800;font-size:.9rem;
-    }
-
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-      color:var(--text);
-      font-weight:900;
-      box-shadow: 0 14px 35px rgba(0,0,0,.22);
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.40);
+      font-weight:800;
     }
     .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--p1), var(--p2));
-      color:#0b0d10;
-      box-shadow: 0 18px 55px rgba(209,26,42,.22);
-    }
-    .btn.ghost{
-      background: rgba(0,0,0,.38);
-      border-color: rgba(255,255,255,.14);
+      border:none;background:var(--red);color:#0b0b0b;
     }
 
-    /* Right panel */
-    .side{
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.34);
-      backdrop-filter: blur(10px);
-      padding:16px;
-    }
-    .side h3{margin:0 0 6px;font-size:1rem;}
-    .muted{color:var(--muted);}
-
-    .avatarCard{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.38);
+    /* Right card */
+    .sideCard{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.45);
+      border-radius: var(--radius);
       padding:14px;
-      text-align:center;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    .profileBox{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.35);
+      border-radius: 16px;
+      padding:14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
       margin-bottom:12px;
     }
-    .avatarCard img{
-      width:110px;height:110px;border-radius:28px;
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow: 0 18px 60px rgba(0,0,0,.45), 0 0 40px rgba(255,59,59,.14);
-      object-fit:cover;
+    /* ✅ Main avatar on the right */
+    .avatar{
+      width:56px;height:56px;border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+      flex:0 0 auto;
     }
+    .avatar img{width:100%;height:100%;object-fit:cover}
 
-    .quick{display:grid;gap:10px;margin-top:10px;}
-    .q{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+    .profileBox b{display:block}
+    .profileBox small{color:var(--muted)}
+
+    .miniTitle{margin:0 0 6px;font-weight:900}
+    .miniText{margin:0 0 10px;color:var(--muted)}
+
+    .linkCard{
       padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      margin-bottom:10px;
     }
-    .q b{display:block;margin-bottom:6px;}
-    .q a{
-      text-decoration: underline;
-      text-decoration-color: rgba(255,59,59,.45);
-    }
+    .linkCard b{display:block;margin-bottom:4px}
+    .linkCard a{color:rgba(255,255,255,.9);text-decoration:underline;text-underline-offset:3px}
+    .linkCard .sub{color:var(--muted);font-size:.92rem}
 
     /* Sections */
     .section{
       margin-top:18px;
-      border-radius:var(--radius2);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      box-shadow: 0 12px 40px rgba(0,0,0,.22);
-      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding:22px;
     }
-    .head{
-      padding:16px 18px;
-      display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.20);
+    .sectionHead{
+      display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline;
+      margin-bottom:10px;
     }
-    .head h2{margin:0;font-size:1.12rem;}
-    .body{padding:18px;}
-
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;}
-    .col4{grid-column: span 4;}
-    .col6{grid-column: span 6;}
-    .col8{grid-column: span 8;}
-    .col12{grid-column: span 12;}
-
-    .tile{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      padding:14px;
-    }
-    .tile b{display:block;margin-bottom:6px;}
-    .tile p{margin:0;color:var(--muted);}
+    .sectionHead h2{margin:0}
+    .hint{color:var(--muted)}
 
     footer{
       margin:18px 0 10px;
-      padding:14px 16px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--radius2);
-      background: rgba(0,0,0,.25);
-      color:var(--muted);
       text-align:center;
+      color:var(--muted);
     }
 
-    @media(max-width:980px){ .heroInner{grid-template-columns:1fr;} }
-    @media(max-width:760px){
-      nav{display:none;}
-      .col4,.col6,.col8{grid-column: span 12;}
-      .top{border-radius:var(--radius2);}
-      .btn{width:100%;}
+    @media(max-width:900px){
+      .hero{grid-template-columns: 1fr}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header class="top">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <img src="avatar.gif" alt="Pumba avatar" />
+
+    <section class="heroBg" id="top">
+      <div class="top">
+        <div class="brand">
+          <div class="brandLogo">
+            <img src="avatar.png" alt="Pumba logo">
+          </div>
+          <div class="brandText">
+            <b>Pumba / Iqbal Hossain</b>
+            <span>Gaming × Creator × Business</span>
+          </div>
         </div>
-        <div>
-          <b>Pumba</b> <span style="color:var(--muted);font-weight:800;">/ Iqbal Hossain</span>
-          <small>Gaming × Creator × Business</small>
-        </div>
+
+        <nav>
+          <a href="#about">About</a>
+          <a href="#business">Business</a>
+          <a href="#social">Social</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
 
-      <nav aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#business">Business</a>
-        <a href="#social">Social</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <section class="hero" id="top">
-      <div class="heroInner">
+      <div class="hero">
         <div>
-          <div class="pills">
-            <span class="pill">Discord: pumba_008</span>
-            <span class="pill">Creator portfolio</span>
-            <span class="pill">Open to collabs</span>
+          <div class="chips">
+            <span class="chip">Discord: pumba_008</span>
+            <span class="chip">Creator portfolio</span>
+            <span class="chip">Open to collabs</span>
           </div>
 
           <h1>
-            Shadow. Steel. <span class="grad">Presence</span>.<br/>
-            Gaming energy — business ready.
+            Shadow. Steel.<br>
+            <span class="accent">Presence.</span><br>
+            Gaming energy —<br>
+            business ready.
           </h1>
 
           <p class="lead">
@@ -291,117 +223,92 @@
             If you want promos, content packages, or creator-style brand work, let’s talk.
           </p>
 
-          <div class="cta">
+          <div class="actions">
             <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
-            <a class="btn ghost" href="#business">Work with me</a>
+            <a class="btn" href="#business">Work with me</a>
             <a class="btn" href="#contact">Contact</a>
           </div>
         </div>
 
-        <aside class="side">
-          <div class="avatarCard">
-            <img src="avatar.gif" alt="Pumba avatar">
-            <div style="margin-top:10px; font-weight:900; font-size:1.05rem;">Pumba</div>
-            <div class="muted" style="font-weight:800;">Gaming × Creator × Business</div>
+        <aside class="sideCard">
+          <div class="profileBox">
+            <div class="avatar">
+              <img src="avatar.png" alt="Pumba avatar">
+            </div>
+            <div>
+              <b>Pumba</b>
+              <small>Gaming × Creator × Business</small>
+            </div>
           </div>
 
-          <h3>Quick links</h3>
-          <div class="muted">Fast access to socials and music.</div>
+          <p class="miniTitle">Quick links</p>
+          <p class="miniText">Fast access to socials and music.</p>
 
-          <div class="quick">
-            <div class="q">
-              <b>Spotify</b>
-              <a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">
-                Open my profile →
-              </a>
-            </div>
-            <div class="q">
-              <b>Instagram</b>
-              <a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a>
-            </div>
-            <div class="q">
-              <b>Facebook</b>
-              <a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Profile →</a>
-            </div>
-            <div class="q">
-              <b>Discord</b>
-              <div class="muted">pumba_008</div>
-            </div>
+          <div class="linkCard">
+            <b>Spotify</b>
+            <div class="sub"><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open my profile →</a></div>
+          </div>
+
+          <div class="linkCard">
+            <b>Instagram</b>
+            <div class="sub"><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a></div>
+          </div>
+
+          <div class="linkCard">
+            <b>Facebook</b>
+            <div class="sub"><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Profile →</a></div>
+          </div>
+
+          <div class="linkCard">
+            <b>Discord</b>
+            <div class="sub">pumba_008</div>
           </div>
         </aside>
       </div>
     </section>
 
     <section class="section" id="about">
-      <div class="head">
+      <div class="sectionHead">
         <h2>About</h2>
-        <div class="muted">A clean intro</div>
+        <div class="hint">A clean intro</div>
       </div>
-      <div class="body">
-        <div class="grid">
-          <div class="col8">
-            <div class="tile">
-              <b>Who I am</b>
-              <p>I’m Iqbal Hossain — online I go by <b style="color:var(--text)">Pumba</b>. I create gaming-focused edits/content with a clean aesthetic and I’m building a professional creator presence.</p>
-            </div>
-          </div>
-          <div class="col4">
-            <div class="tile">
-              <b>Focus</b>
-              <p>Gaming • Editing • Content • Community • Growth</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p style="margin:0;color:var(--muted);">
+        I’m Iqbal Hossain — online I go by <b>Pumba</b>. I create gaming-focused edits/content and I’m open to collaborations and business work.
+      </p>
     </section>
 
     <section class="section" id="business">
-      <div class="head">
+      <div class="sectionHead">
         <h2>Business</h2>
-        <div class="muted">Collabs + services</div>
+        <div class="hint">Work & services</div>
       </div>
-      <div class="body">
-        <div class="grid">
-          <div class="col6"><div class="tile"><b>Promotions</b><p>Creator-style promos, shoutouts, and product highlights.</p></div></div>
-          <div class="col6"><div class="tile"><b>Content packages</b><p>Short-form edits for Shorts/Reels/TikTok delivery.</p></div></div>
-          <div class="col12"><div class="tile"><b>Fastest contact</b><p>Discord: <b style="color:var(--text)">pumba_008</b></p></div></div>
-        </div>
-      </div>
+      <p style="margin:0;color:var(--muted);">
+        Promos • Content packages • Brand collaborations • Long-term partnerships.
+      </p>
     </section>
 
     <section class="section" id="social">
-      <div class="head">
+      <div class="sectionHead">
         <h2>Social</h2>
-        <div class="muted">Links</div>
+        <div class="hint">Find me online</div>
       </div>
-      <div class="body">
-        <div class="grid">
-          <div class="col6"><div class="tile"><b>YouTube</b><p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
-          <div class="col6"><div class="tile"><b>Spotify</b><p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
-          <div class="col6"><div class="tile"><b>Instagram</b><p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
-          <div class="col6"><div class="tile"><b>Facebook</b><p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
-        </div>
-      </div>
+      <p style="margin:0;color:var(--muted);">
+        YouTube, Instagram, Facebook, Spotify, and Discord: <b>pumba_008</b>.
+      </p>
     </section>
 
     <section class="section" id="contact">
-      <div class="head">
+      <div class="sectionHead">
         <h2>Contact</h2>
-        <div class="muted">Let’s connect</div>
+        <div class="hint">Business inquiries</div>
       </div>
-      <div class="body">
-        <div class="tile">
-          <b>Best</b>
-          <p>Discord: <b style="color:var(--text)">pumba_008</b></p>
-          <p style="margin-top:10px;color:var(--muted);">
-            Email: <a href="mailto:whitemask10933@gmail.com" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">whitemask10933@gmail.com</a>
-          </p>
-        </div>
-      </div>
+      <p style="margin:0;color:var(--muted);">
+        Email: <a href="mailto:whitemask10933@gmail.com" style="text-decoration:underline;text-underline-offset:3px;">whitemask10933@gmail.com</a>
+      </p>
     </section>
 
     <footer>
-      © <span id="year"></span> Pumba / Iqbal Hossain
+      © <span id="year"></span> Pumba
     </footer>
   </div>
 
@@ -410,5 +317,3 @@
   </script>
 </body>
 </html>
-
-
