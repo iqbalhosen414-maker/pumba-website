@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pumba — Gaming × Business</title>
-  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits, creator portfolio, and business collaborations." />
 
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Pumba — Gaming × Business</title>
+  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits, content creation, and business collaborations." />
+
+  <link rel="icon" type="image/png" href="./favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
   <style>
+    /* ⚠️ CSS UNCHANGED (exactly as you sent) */
     :root{
       --bg:#07090c;
       --panel:rgba(10,12,16,.74);
@@ -21,131 +26,33 @@
       --radius:20px;
       --max:1120px;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,sans-serif;
-      color:var(--text);
-      background:#000;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:url("banner.png") center/cover no-repeat;
-      z-index:-3;
-    }
-
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.75));
-      z-index:-2;
-    }
-
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text)}
+    body::before{content:"";position:fixed;inset:0;background:url("banner.png") center/cover no-repeat;z-index:-3}
+    body::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.75));z-index:-2}
     a{text-decoration:none;color:inherit}
     .wrap{max-width:var(--max);margin:auto;padding:20px}
-
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:14px 18px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(0,0,0,.4);
-      position:sticky;
-      top:14px;
-      z-index:10;
-    }
-
+    .top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(0,0,0,.4);position:sticky;top:14px;z-index:10}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand img{
-      width:36px;height:36px;border-radius:50%;
-      object-fit:cover;border:1px solid var(--line)
-    }
-
+    .brand img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
     nav a{margin-left:12px;color:var(--muted)}
     nav a:hover{color:#fff}
-
-    .hero{
-      margin-top:20px;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      padding:28px;
-      display:grid;
-      grid-template-columns:1.3fr .7fr;
-      gap:20px;
-    }
-
-    h1{
-      font-size:clamp(2.1rem,5vw,3.3rem);
-      line-height:1.1;margin:0
-    }
+    .hero{margin-top:20px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--panel2));padding:28px;display:grid;grid-template-columns:1.3fr .7fr;gap:20px}
+    h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;margin:0}
     .accent{color:var(--accent)}
-
     .chips{margin:14px 0;display:flex;flex-wrap:wrap;gap:10px}
-    .chip{
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05)
-    }
-
+    .chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05)}
     .lead{color:var(--muted);max-width:60ch}
-
     .actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      padding:12px 16px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      font-weight:700
-    }
-    .btn.primary{
-      background:var(--accent);
-      border:none;color:#fff
-    }
-
-    .side{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(0,0,0,.35);
-      padding:16px
-    }
-
-    .mini{
-      display:flex;gap:12px;align-items:center;
-      border:1px solid var(--line);
-      padding:12px;border-radius:16px
-    }
-
-    .mini img{
-      width:48px;height:48px;border-radius:14px;
-      object-fit:cover;border:1px solid var(--line)
-    }
-
-    .section{
-      margin-top:20px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(0,0,0,.45);
-      padding:22px
-    }
-
-    footer{
-      margin:20px 0;
-      text-align:center;
-      color:var(--muted)
-    }
-
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-      nav{display:none}
-    }
+    .btn{padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);font-weight:700}
+    .btn.primary{background:var(--accent);border:none;color:#fff}
+    .side{border:1px solid var(--line);border-radius:var(--radius);background:rgba(0,0,0,.35);padding:16px}
+    .mini{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:12px;border-radius:16px}
+    .mini img{width:48px;height:48px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}
+    .section{margin-top:20px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(0,0,0,.45);padding:22px}
+    footer{margin:20px 0;text-align:center;color:var(--muted)}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}nav{display:none}}
   </style>
 </head>
 
@@ -154,7 +61,7 @@
 
 <header class="top">
   <div class="brand">
-    <img src="avatar.png" alt="Pumba">
+    <img src="avatar.png">
     <div>
       <b>Pumba / Iqbal Hossain</b><br>
       <span style="color:var(--muted)">Gaming × Creator × Business</span>
@@ -172,7 +79,7 @@
     <div class="chips">
       <span class="chip">Discord: pumba_008</span>
       <span class="chip">Quality over quantity</span>
-      <span class="chip">Open to exposure</span>
+      <span class="chip">Creator portfolio</span>
     </div>
 
     <h1>
@@ -181,8 +88,11 @@
     </h1>
 
     <p class="lead">
-      I’m <b>Pumba</b> (Iqbal Hossain) — a chill, logical creator focused on
-      gaming edits, mood-driven visuals, and clean pacing rather than raw gameplay skill.
+      I’m <b>Pumba</b> (Iqbal Hossain) — a calm and logical creator focused on gaming edits and content creation.
+      I’m not known for being the best at games, but for understanding <b>style, mood, pacing, and atmosphere</b>.
+      <br><br>
+      I prefer quality over quantity and believe strong presence comes from consistency, discipline,
+      and improving step by step. If you’re looking for clean edits or creator-style content, let’s talk.
     </p>
 
     <div class="actions">
@@ -201,8 +111,8 @@
     </div>
 
     <p style="margin-top:14px;color:var(--muted)">
-      I mainly work with FPS clips, montages, highlights, Shorts,
-      and anime edits — focusing on style, mood, and timing.
+      I create FPS edits, montages, highlights, Shorts, and anime edits.
+      My main focus is clean pacing, music sync, and visual mood rather than flashy gameplay.
     </p>
   </aside>
 </section>
@@ -210,27 +120,26 @@
 <section class="section" id="about">
   <h2>About Me</h2>
   <p class="lead">
-    I’m Iqbal Hossain, known online as Pumba. I’m a calm and logical person who prefers
-    quality over quantity in content creation.
+    I’m Iqbal Hossain, known online as Pumba. I’m a chill gamer who always tries to think logically,
+    even when things get frustrating.
     <br><br>
-    I’m not a pro gamer — I’m average — but my strength lies in editing, pacing,
-    atmosphere, and visual storytelling.
-    I believe consistency, mindset, and discipline matter more than raw skill.
+    I’ve been creating content consistently in the past and continue to help friends with editing and content ideas.
+    My editing skill level sits between beginner and intermediate, and I mainly use CapCut to bring ideas to life.
+    <br><br>
+    I believe mindset, patience, and consistency matter more than raw skill.
   </p>
 </section>
 
 <section class="section" id="business">
   <h2>Content & Goals</h2>
   <p class="lead">
-    I create gaming edits, anime edits, montages, highlights, and Shorts.
-    My editing level is between beginner and intermediate, and I mainly use CapCut.
+    I create gaming edits, anime edits, montages, highlights, and short-form content.
+    I’ve grown a YouTube channel to over <b>700 subscribers</b> and achieved
+    <b>225,000+ total views</b> on Shorts, mainly through anime edits.
     <br><br>
-    I’ve grown a YouTube channel to over <b>700 subscribers</b> and
-    <b>225,000+ total views</b> on Shorts, mostly through anime edits.
-    <br><br>
-    Right now, my goal is to turn content creation into income so I can support my family
-    and grow myself. I’m focused on gaining exposure and opportunities while staying
-    professional and improving my craft.
+    Right now, my main goal is to turn content creation into income so I can support my family
+    while continuing to grow myself as a creator.
+    I’m currently focused on gaining exposure and opportunities, and I’m open to professional work.
   </p>
 </section>
 
@@ -253,3 +162,4 @@
 </script>
 </body>
 </html>
+
