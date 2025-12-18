@@ -3,29 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Iqbal Hossain (Pumba) — creator portfolio: gaming energy + business-ready collaborations." />
+  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits + creator portfolio + business collaborations." />
   <title>Pumba — Gaming × Business</title>
 
+  <!-- Favicon (tab icon) -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg:#070812;
-      --bg2:#0a0c18;
-      --card: rgba(255,255,255,.06);
+      /* Samurai / Shrine palette */
+      --bg:#050607;            /* ink black */
+      --bg2:#0b0d10;           /* charcoal */
+      --card: rgba(255,255,255,.05);
+      --card2: rgba(255,255,255,.08);
       --line: rgba(255,255,255,.12);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
+      --muted: rgba(255,255,255,.68);
 
-      --p1:#7c3aed;   /* purple */
-      --p2:#22d3ee;   /* cyan */
-      --p3:#ff4dd8;   /* pink */
+      /* Shrine reds + lantern warmth */
+      --p1:#d11a2a;            /* torii red */
+      --p2:#ff3b3b;            /* bright red */
+      --p3:#ffb86b;            /* warm lantern */
 
       --radius:18px;
       --radius2:26px;
-      --shadow: 0 22px 75px rgba(0,0,0,.55);
+      --shadow: 0 22px 75px rgba(0,0,0,.62);
     }
 
     *{box-sizing:border-box;}
@@ -35,9 +43,9 @@
       font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1000px 650px at 14% 10%, rgba(124,58,237,.20), transparent 55%),
-        radial-gradient(900px 600px at 86% 18%, rgba(34,211,238,.16), transparent 55%),
-        radial-gradient(900px 700px at 55% 92%, rgba(255,77,216,.10), transparent 60%),
+        radial-gradient(1100px 700px at 20% 10%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(255,59,59,.14), transparent 58%),
+        radial-gradient(1000px 700px at 50% 92%, rgba(255,184,107,.08), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
@@ -45,28 +53,26 @@
     a:hover{opacity:.92;}
     .wrap{max-width:1120px;margin:0 auto;padding:24px;}
 
+    /* Top nav */
     .top{
       position:sticky;top:14px;z-index:30;
       display:flex;align-items:center;justify-content:space-between;gap:14px;
       padding:12px 14px;
       border:1px solid var(--line);
       border-radius:999px;
-      background: rgba(0,0,0,.28);
+      background: rgba(0,0,0,.30);
       backdrop-filter: blur(12px);
       box-shadow: 0 10px 38px rgba(0,0,0,.35);
     }
-    .brand{display:flex;align-items:center;gap:12px;min-width:220px;}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px;}
     .logo{
-      width:38px;height:38px;border-radius:14px;
-      background: linear-gradient(135deg, var(--p1), var(--p2));
-      box-shadow: 0 18px 45px rgba(124,58,237,.22);
-      position:relative;overflow:hidden;
+      width:44px;height:44px;border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 18px 60px rgba(209,26,42,.18);
+      background: rgba(255,255,255,.06);
     }
-    .logo:after{
-      content:"";position:absolute;inset:-60%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%);
-      transform: rotate(20deg);
-    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block;}
     .brand b{font-weight:900;letter-spacing:-.02em;}
     .brand small{display:block;color:var(--muted);font-weight:700;margin-top:1px}
 
@@ -78,6 +84,7 @@
     }
     nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.05);}
 
+    /* Hero (banner as background) */
     .hero{
       margin-top:18px;
       border-radius:var(--radius2);
@@ -87,7 +94,7 @@
       overflow:hidden;
       min-height:520px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.78)),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.82)),
         url('banner.gif') center/cover no-repeat;
     }
 
@@ -95,7 +102,7 @@
       position:relative;
       padding:28px;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.05fr .95fr;
       gap:16px;
       align-items:stretch;
     }
@@ -115,26 +122,27 @@
 
     .lead{
       margin:12px 0 0;
-      color:rgba(255,255,255,.82);
+      color:rgba(255,255,255,.84);
       font-size:1.05rem;
       max-width:70ch;
-      text-shadow: 0 10px 30px rgba(0,0,0,.50);
+      text-shadow: 0 10px 30px rgba(0,0,0,.55);
     }
 
     .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
     .pill{
       padding:7px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.30);
-      color:rgba(255,255,255,.90);
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
+      color:rgba(255,255,255,.92);
       font-weight:800;font-size:.9rem;
     }
 
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
       padding:12px 14px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.08);
       color:var(--text);
       font-weight:900;
@@ -143,34 +151,29 @@
     .btn.primary{
       border:none;
       background: linear-gradient(135deg, var(--p1), var(--p2));
-      color:#071018;
+      color:#0b0d10;
+      box-shadow: 0 18px 55px rgba(209,26,42,.22);
     }
-    .btn.ghost{background: rgba(0,0,0,.28);}
+    .btn.ghost{
+      background: rgba(0,0,0,.38);
+      border-color: rgba(255,255,255,.14);
+    }
 
+    /* Right panel */
     .side{
       border-radius:var(--radius);
       border:1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.30);
+      background: rgba(0,0,0,.34);
       backdrop-filter: blur(10px);
       padding:16px;
     }
     .side h3{margin:0 0 6px;font-size:1rem;}
     .muted{color:var(--muted);}
 
-    .quick{display:grid;gap:10px;margin-top:10px;}
-    .q{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      padding:12px;
-    }
-    .q b{display:block;margin-bottom:6px;}
-    .q a{ text-decoration: underline; text-decoration-color: rgba(34,211,238,.35); }
-
     .avatarCard{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.30);
+      background: rgba(0,0,0,.38);
       padding:14px;
       text-align:center;
       margin-bottom:12px;
@@ -178,10 +181,24 @@
     .avatarCard img{
       width:110px;height:110px;border-radius:28px;
       border:1px solid rgba(255,255,255,.18);
-      box-shadow: 0 18px 60px rgba(124,58,237,.25), 0 0 40px rgba(34,211,238,.18);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45), 0 0 40px rgba(255,59,59,.14);
       object-fit:cover;
     }
 
+    .quick{display:grid;gap:10px;margin-top:10px;}
+    .q{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding:12px;
+    }
+    .q b{display:block;margin-bottom:6px;}
+    .q a{
+      text-decoration: underline;
+      text-decoration-color: rgba(255,59,59,.45);
+    }
+
+    /* Sections */
     .section{
       margin-top:18px;
       border-radius:var(--radius2);
@@ -194,7 +211,7 @@
       padding:16px 18px;
       display:flex;align-items:baseline;justify-content:space-between;gap:12px;
       border-bottom:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
+      background: rgba(0,0,0,.20);
     }
     .head h2{margin:0;font-size:1.12rem;}
     .body{padding:18px;}
@@ -238,7 +255,9 @@
   <div class="wrap">
     <header class="top">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="logo" aria-hidden="true">
+          <img src="avatar.gif" alt="Pumba avatar" />
+        </div>
         <div>
           <b>Pumba</b> <span style="color:var(--muted);font-weight:800;">/ Iqbal Hossain</span>
           <small>Gaming × Creator × Business</small>
@@ -263,7 +282,7 @@
           </div>
 
           <h1>
-            A creator site that feels <span class="grad">premium</span>.<br/>
+            Shadow. Steel. <span class="grad">Presence</span>.<br/>
             Gaming energy — business ready.
           </h1>
 
@@ -357,10 +376,10 @@
       </div>
       <div class="body">
         <div class="grid">
-          <div class="col6"><div class="tile"><b>YouTube</b><p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
-          <div class="col6"><div class="tile"><b>Spotify</b><p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
-          <div class="col6"><div class="tile"><b>Instagram</b><p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
-          <div class="col6"><div class="tile"><b>Facebook</b><p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>YouTube</b><p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>Spotify</b><p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>Instagram</b><p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
+          <div class="col6"><div class="tile"><b>Facebook</b><p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">Open →</a></p></div></div>
         </div>
       </div>
     </section>
@@ -374,6 +393,9 @@
         <div class="tile">
           <b>Best</b>
           <p>Discord: <b style="color:var(--text)">pumba_008</b></p>
+          <p style="margin-top:10px;color:var(--muted);">
+            Email: <a href="mailto:whitemask10933@gmail.com" style="text-decoration:underline; text-decoration-color: rgba(255,59,59,.45);">whitemask10933@gmail.com</a>
+          </p>
         </div>
       </div>
     </section>
@@ -388,4 +410,5 @@
   </script>
 </body>
 </html>
+
 
