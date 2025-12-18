@@ -1,258 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Pumba — Gaming × Business</title>
-<meta name="description" content="Pumba (Iqbal Hossain) — gaming edits, content creation, and business collaborations." />
+  <title>Pumba — Gaming × Business</title>
+  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits, content creation, and business collaborations." />
 
-<link rel="icon" type="image/png" href="./favicon.png" />
+  <link rel="icon" type="image/png" href="./favicon.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
-<style>
-:root{
-  --bg:#07090c;
-  --panel:rgba(10,12,16,.74);
-  --panel2:rgba(10,12,16,.58);
-  --line:rgba(255,255,255,.1);
-  --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.72);
-  --accent:#d11f1f;
-  --shadow:0 18px 55px rgba(0,0,0,.55);
-  --radius:20px;
-  --max:1120px;
-}
+  <style>
+    :root{
+      --bg:#07090c;
+      --panel:rgba(10,12,16,.74);
+      --panel2:rgba(10,12,16,.58);
+      --line:rgba(255,255,255,.1);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --accent:#d11f1f;
+      --radius:20px;
+      --max:1120px;
+    }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+    }
 
-body{
-  margin:0;
-  font-family:Inter,system-ui,sans-serif;
-  color:var(--text);
-  background:#000;
-}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:url("./banner.png") center/cover no-repeat;
+      z-index:-2;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.66));
+      z-index:-1;
+    }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("./banner.png") center/cover no-repeat;
-  z-index:-2;
-}
+    .wrap{max-width:var(--max);margin:auto;padding:20px}
 
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.65));
-  z-index:-1;
-}
+    .top{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:12px 16px;border-radius:999px;
+      background:rgba(0,0,0,.4);
+      border:1px solid var(--line);
+      backdrop-filter:blur(8px);
+    }
 
-.wrap{max-width:var(--max);margin:auto;padding:20px 18px 60px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:36px;height:36px;border-radius:50%}
 
-.icon{
-  width:18px;
-  height:18px;
-  fill:white;
-  opacity:.9;
-}
+    nav a{margin-left:12px;color:var(--muted)}
 
-.btn,.go{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  transition:all .18s ease;
-}
+    .hero{
+      margin-top:18px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+    }
 
-.btn:hover,.go:hover{
-  box-shadow:0 0 0 1px rgba(209,31,31,.35);
-}
+    .heroInner{
+      padding:26px;
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:18px;
+    }
 
-.top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  backdrop-filter:blur(8px);
-}
+    h1{font-size:clamp(2.2rem,5vw,3.3rem)}
+    .accent{color:var(--accent)}
 
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:34px;height:34px;border-radius:50%}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line)}
 
-nav a{margin-left:10px;color:var(--muted);text-decoration:none}
+    .actions{margin-top:16px;display:flex;gap:10px}
+    .btn{
+      padding:12px 16px;border-radius:999px;
+      border:1px solid var(--line);
+      font-weight:700;
+      display:flex;gap:8px;align-items:center;
+    }
+    .btn.primary{background:#d11f1f}
 
-.hero{
-  margin-top:18px;
-  border-radius:var(--radius);
-  background:linear-gradient(180deg,var(--panel),var(--panel2));
-  border:1px solid var(--line);
-}
+    /* ICON SYSTEM */
+    .icon{
+      width:18px;height:18px;
+      display:inline-flex;
+      transition:.25s;
+    }
+    .icon svg{width:100%;height:100%}
 
-.heroInner{
-  padding:26px;
-  display:grid;
-  grid-template-columns:1.25fr .75fr;
-  gap:18px;
-}
+    .youtube:hover{color:#ff2b2b}
+    .spotify:hover{color:#1ed760}
+    .instagram:hover{color:#e1306c}
+    .facebook:hover{color:#1877f2}
+    .discord:hover{color:#5865f2}
 
-h1{font-size:clamp(2.1rem,5vw,3.3rem)}
-.accent{color:var(--accent)}
+    .linkRow{
+      display:flex;justify-content:space-between;
+      align-items:center;padding:12px;
+      border-radius:14px;border:1px solid var(--line);
+      transition:.25s;
+    }
+    .linkRow:hover{background:rgba(255,255,255,.05)}
 
-.btn.primary{
-  background:var(--accent);
-  padding:12px 18px;
-  border-radius:999px;
-  color:white;
-  text-decoration:none;
-}
+    .copy{cursor:pointer}
 
-.sideCard{
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:16px;
-}
-
-.linkRow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  margin-top:10px;
-}
-
-.go{
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  text-decoration:none;
-  color:white;
-}
-
-.copied{
-  font-size:.75rem;
-  color:#6dff95;
-  margin-left:6px;
-}
-
-@media(max-width:900px){
-  .heroInner{grid-template-columns:1fr}
-}
-
-@media(prefers-reduced-motion:reduce){
-  *{transition:none}
-}
-</style>
+    footer{text-align:center;margin-top:20px;opacity:.7}
+    @media(max-width:900px){.heroInner{grid-template-columns:1fr}}
+  </style>
 </head>
 
 <body>
+
+<!-- SVG ICON DEFINITIONS -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.5V8.5l6.4 3.5Z"/></symbol>
+  <symbol id="sp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0Z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .3 2.5.5.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.5.4 1.3.5 2.5.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 2-.5 2.5-.2.6-.5 1-.9 1.5-.5.5-.9.8-1.5 1-.5.2-1.3.4-2.5.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.3-2.5-.5-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.4-1.3-.5-2.5-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.3-2 .5-2.5.2-.6.5-1 .9-1.5.5-.5.9-.8 1.5-1 .5-.2 1.3-.4 2.5-.5 1.2-.1 1.6-.1 4.8-.1Z"/></symbol>
+  <symbol id="fb" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12Z"/></symbol>
+  <symbol id="dc" viewBox="0 0 24 24"><path fill="currentColor" d="M20.3 4.6a19.8 19.8 0 0 0-4.9-1.5l-.2.4a18.4 18.4 0 0 1 4.4 1.4c-3.9-1.8-7.8-1.8-11.6 0a18.4 18.4 0 0 1 4.4-1.4l-.2-.4a19.8 19.8 0 0 0-4.9 1.5C3.9 9.2 3.1 13.8 3.5 18.3a19.9 19.9 0 0 0 5.9 3l.7-1a12.4 12.4 0 0 1-3.6-1.7c4.3 2.2 9.5 2.2 13.8 0a12.4 12.4 0 0 1-3.6 1.7l.7 1a19.9 19.9 0 0 0 5.9-3c.4-4.5-.4-9.1-2.8-13.7Z"/></symbol>
+</svg>
+
 <div class="wrap">
-
-<header class="top">
-  <div class="brand">
-    <img src="./avatar.png" />
-    <div>
+  <header class="top">
+    <div class="brand">
+      <img src="./avatar.png">
       <b>Pumba / Iqbal Hossain</b>
-      <div style="font-size:.85rem;color:var(--muted)">Gaming × Creator × Business</div>
     </div>
-  </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#business">Business</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#business">Business</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-<div class="heroInner">
+  <section class="hero">
+    <div class="heroInner">
+      <div>
+        <div class="chips">
+          <span class="chip">Discord: pumba_008</span>
+          <span class="chip">Quality over quantity</span>
+          <span class="chip">700+ subs · 225K+ views</span>
+        </div>
 
-<div>
-<p style="opacity:.8;margin-bottom:6px">
-Discord: <b>pumba_008</b> · Quality over quantity · 700+ subs · 225K+ views
-</p>
+        <h1>Shadow. Steel. <span class="accent">Presence.</span></h1>
 
-<h1>Shadow. Steel. <span class="accent">Presence.</span><br>Gaming energy — business ready.</h1>
+        <p>
+          I’m <b>Pumba</b> — a chill, logical creator focused on
+          <b>style, mood, pacing, and clean timing</b>.
+          I make FPS edits, montages, highlights, Shorts, and anime edits.
+        </p>
 
-<p>
-I’m <b>Pumba</b> (Iqbal Hossain) — a chill, logical creator focused on
-<b>style, mood, pacing, and clean timing</b>.
-I prefer quality over quantity and polish over rushing.
-</p>
+        <div class="actions">
+          <a class="btn primary youtube" href="https://youtube.com/@editsenpaisan" target="_blank">
+            <span class="icon"><svg><use href="#yt"/></svg></span> YouTube
+          </a>
+          <a class="btn">Work with me</a>
+        </div>
+      </div>
 
-<p>
-I create <b>FPS edits, montages, highlights, Shorts, and anime edits</b>.
-My editing skill sits between beginner and intermediate, improving step by step.
-I mainly use <b>CapCut</b>.
-</p>
+      <div>
+        <div class="linkRow spotify">
+          <span class="icon"><svg><use href="#sp"/></svg></span>
+          <a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m" target="_blank">Spotify</a>
+        </div>
 
-<p>
-I grew to <b>700+ subscribers</b> and <b>225K+ Shorts views</b> (mostly anime edits).
-Even when I’m not uploading, I help friends improve their content.
-Right now I’m pushing for exposure to support my family and grow professionally.
-</p>
+        <div class="linkRow instagram">
+          <span class="icon"><svg><use href="#ig"/></svg></span>
+          <a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank">Instagram</a>
+        </div>
 
-<a class="btn primary" href="https://youtube.com/@editsenpaisan" target="_blank">
-▶ YouTube
-</a>
-</div>
+        <div class="linkRow facebook">
+          <span class="icon"><svg><use href="#fb"/></svg></span>
+          <a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank">Facebook</a>
+        </div>
 
-<aside class="sideCard">
-<b>Quick links</b>
+        <div class="linkRow discord copy" onclick="copyDiscord()">
+          <span class="icon"><svg><use href="#dc"/></svg></span>
+          <span id="dcText">pumba_008</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="linkRow">
-<div>Spotify</div>
-<a class="go" href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m" target="_blank">Open →</a>
-</div>
-
-<div class="linkRow">
-<div>Instagram</div>
-<a class="go" href="https://www.instagram.com/_iqbal_hossain__/" target="_blank">Visit →</a>
-</div>
-
-<div class="linkRow">
-<div>Facebook</div>
-<a class="go" href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank">Open →</a>
-</div>
-
-<div class="linkRow">
-<div>Discord</div>
-<span class="go" id="discordCopy">pumba_008</span>
-<span id="copied" class="copied" style="display:none">Copied!</span>
-</div>
-
-</aside>
-
-</div>
-</section>
-
-<footer style="margin-top:20px;text-align:center;opacity:.6">
-© <span id="year"></span> Pumba
-</footer>
-
+  <footer>© <span id="y"></span> Pumba</footer>
 </div>
 
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
-
-const d=document.getElementById("discordCopy");
-const c=document.getElementById("copied");
-
-d.onclick=()=>{
-  navigator.clipboard.writeText("pumba_008");
-  c.style.display="inline";
-  setTimeout(()=>c.style.display="none",1200);
-};
+  document.getElementById("y").textContent = new Date().getFullYear();
+  function copyDiscord(){
+    navigator.clipboard.writeText("pumba_008");
+    document.getElementById("dcText").textContent="Copied!";
+    setTimeout(()=>document.getElementById("dcText").textContent="pumba_008",1200);
+  }
 </script>
+
 </body>
 </html>
-
-
-
