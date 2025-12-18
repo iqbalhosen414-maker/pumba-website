@@ -1,70 +1,692 @@
-<div class="links">
-  <!-- Spotify -->
-  <div class="linkRow">
-    <div class="left">
-      <span class="icon" aria-hidden="true">
-        <!-- Spotify SVG -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path fill="currentColor" d="M12 1.8a10.2 10.2 0 1 0 0 20.4A10.2 10.2 0 0 0 12 1.8Zm4.73 14.65a.9.9 0 0 1-1.24.3c-3.4-2.08-7.68-2.55-12.7-1.4a.9.9 0 0 1-.4-1.76c5.46-1.25 10.16-.7 13.98 1.64.43.26.56.81.3 1.22Zm1.2-2.75a1 1 0 0 1-1.37.33c-3.9-2.4-9.84-3.1-14.45-1.7a1 1 0 1 1-.6-1.9c5.28-1.66 11.82-.88 16.28 1.86.47.29.62.9.33 1.41Zm.1-2.86c-4.67-2.77-12.38-3.02-16.84-1.67a1.1 1.1 0 0 1-.64-2.1c5.12-1.55 13.63-1.25 19.02 1.95a1.1 1.1 0 1 1-1.54 1.82Z"/>
-        </svg>
-      </span>
-      <div>
-        <b>Spotify</b>
-        <small>My profile</small>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pumba — Gaming × Business</title>
+  <meta name="description" content="Pumba (Iqbal Hossain) — gaming edits, content creation, and creator-style brand work." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./favicon.png" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      /* Banner-matching palette (moonlight slate + lantern red) */
+      --bg: #07090c;
+      --panel: rgba(10, 12, 16, 0.74);
+      --panel2: rgba(10, 12, 16, 0.58);
+      --line: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+
+      --accent: #d11f1f;   /* lantern red */
+      --accent2: #a9b7c9;  /* moonlight slate */
+      --shadow: 0 18px 55px rgba(0,0,0,0.55);
+      --radius: 20px;
+
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    /* Full-page banner background */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        url("./banner.png") center / cover no-repeat;
+      z-index:-3;
+      transform: translateZ(0);
+    }
+
+    /* Contrast overlay to make text readable (no heavy blur, safe) */
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(220,25,25,0.20), transparent 60%),
+        radial-gradient(1000px 700px at 80% 30%, rgba(160,180,205,0.16), transparent 62%),
+        linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.66));
+      z-index:-2;
+    }
+
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ opacity:0.92; }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 20px 18px 60px;
+    }
+
+    /* Top bar */
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.40);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.40);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    .brand img{
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.20);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.40);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .brand b{
+      display:block;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .brand span{
+      display:block;
+      margin-top: 2px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* subtle red glow line (safe) */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(800px 380px at 20% 30%, rgba(209,31,31,0.18), transparent 60%),
+        radial-gradient(900px 500px at 80% 25%, rgba(169,183,201,0.13), transparent 60%);
+      pointer-events:none;
+    }
+
+    .heroInner{
+      position:relative;
+      z-index:1;
+      padding: 26px;
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .accent{
+      color: var(--accent);
+      text-shadow: 0 10px 30px rgba(209,31,31,0.15);
+    }
+
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 1.02rem;
+    }
+
+    .chips{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+
+    .chip{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.92rem;
+    }
+
+    .actions{
+      margin-top: 16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(209,31,31,1), rgba(209,31,31,0.75));
+      border-color: rgba(209,31,31,0.35);
+      box-shadow: 0 18px 40px rgba(209,31,31,0.18);
+    }
+
+    .btn.primary:hover{
+      opacity: 0.96;
+    }
+
+    .btn.ghost:hover{
+      background: rgba(255,255,255,0.07);
+    }
+
+    /* Right card */
+    .sideCard{
+      border-radius: calc(var(--radius) - 4px);
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.35);
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      overflow:hidden;
+    }
+
+    .miniProfile{
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: 14px;
+      background: rgba(255,255,255,0.05);
+      display:flex;
+      gap: 12px;
+      align-items:center;
+    }
+
+    .miniProfile img{
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .miniProfile b{
+      display:block;
+      line-height:1.15;
+    }
+
+    .miniProfile span{
+      display:block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 2px;
+    }
+
+    .quickTitle{
+      font-weight: 800;
+      letter-spacing:-0.01em;
+    }
+
+    .quickSub{
+      color: var(--muted);
+      margin-top: -6px;
+    }
+
+    .links{
+      display:grid;
+      gap: 10px;
+    }
+
+    .linkRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .linkRow b{
+      font-size: 0.98rem;
+    }
+
+    .linkRow small{
+      color: var(--muted);
+      display:block;
+      margin-top: 2px;
+      font-size: 0.86rem;
+    }
+
+    .go{
+      color: rgba(255,255,255,0.85);
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .go:hover{
+      border-color: rgba(209,31,31,0.35);
+      background: rgba(209,31,31,0.12);
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(0,0,0,0.40), rgba(0,0,0,0.28));
+      box-shadow: 0 14px 40px rgba(0,0,0,0.32);
+      overflow:hidden;
+    }
+
+    .sectionInner{
+      padding: 18px 20px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .sectionInner h2{
+      margin:0;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hint{
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .content{
+      padding: 18px 20px 20px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .col6{ grid-column: span 6; }
+    .col4{ grid-column: span 4; }
+    .col12{ grid-column: span 12; }
+
+    .box{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .box b{
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    .box p{
+      margin:0;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 16px;
+      text-align:center;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      padding: 18px 10px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 950px){
+      .heroInner{ grid-template-columns: 1fr; }
+      .top{ border-radius: var(--radius); }
+    }
+    @media (max-width: 720px){
+      nav{ display:none; }
+      .col6, .col4{ grid-column: span 12; }
+      .heroInner{ padding: 18px; }
+    }
+
+    /* Low-end / accessibility: if user prefers reduced motion, keep it fully static */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <img src="./avatar.png" alt="Pumba avatar" />
+        <div>
+          <b>Pumba / Iqbal Hossain</b>
+          <span>Gaming × Creator × Business</span>
+        </div>
       </div>
-    </div>
-    <a class="go" href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open →</a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#business">Business</a>
+        <a href="#social">Social</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="heroInner">
+        <div>
+          <div class="chips">
+            <span class="chip">Discord: pumba_008</span>
+            <span class="chip">Quality over quantity</span>
+            <span class="chip">700+ subs • 225K+ views</span>
+          </div>
+
+          <h1>
+            Shadow. Steel. <span class="accent">Presence.</span><br/>
+            Gaming energy — business ready.
+          </h1>
+
+          <p class="lead">
+            I’m <b>Pumba</b> (Iqbal Hossain) — a chill, logical creator who focuses on what actually makes content feel premium:
+            <b>style, mood, pacing, and clean timing</b>. I’m not here pretending I’m the best gamer — I’m here to make edits that
+            look and feel right.
+          </p>
+
+          <p class="lead">
+            I make <b>FPS edits</b>, <b>montages</b>, <b>highlights</b>, <b>Shorts</b>, and <b>anime edits</b>. My editing level is
+            above beginner and below intermediate — improving step by step, and always choosing polish over rushing.
+          </p>
+
+          <p class="lead">
+            I used to upload consistently and grew to <b>700+ subscribers</b> with around <b>225K total Shorts views</b> (mostly from anime edits).
+            Even when I’m not uploading, I still help friends with editing, content ideas, and how to improve their videos.
+          </p>
+
+          <p class="lead">
+            Right now I’m aiming for <b>quick exposure</b> because I want to build income through content creation — not just for myself,
+            but to support my family. If you need creator-style editing with strong mood and clean pacing, I’m open to work.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">
+              ▶ YouTube
+            </a>
+            <a class="btn ghost" href="#business">Work with me</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <aside class="sideCard">
+          <div class="miniProfile">
+            <img src="./avatar.png" alt="Pumba profile image" />
+            <div>
+              <b>Pumba</b>
+              <span>Gaming × Creator × Business</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="quickTitle">Quick links</div>
+            <div class="quickSub">Fast access to socials and music.</div>
+          </div>
+
+          <div class="links">
+            <div class="linkRow">
+              <div>
+                <b>Spotify</b>
+                <small>My profile</small>
+              </div>
+              <a class="go" href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open →</a>
+            </div>
+
+            <div class="linkRow">
+              <div>
+                <b>Instagram</b>
+                <small>@_iqbal_hossain__</small>
+              </div>
+              <a class="go" href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a>
+            </div>
+
+            <div class="linkRow">
+              <div>
+                <b>Facebook</b>
+                <small>Profile</small>
+              </div>
+              <a class="go" href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Open →</a>
+            </div>
+
+            <div class="linkRow">
+              <div>
+                <b>Discord</b>
+                <small>pumba_008</small>
+              </div>
+              <span class="go" title="Copy manually">pumba_008</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="sectionInner">
+        <h2>About</h2>
+        <div class="hint">A clean intro</div>
+      </div>
+      <div class="content">
+        <div class="grid">
+          <div class="col12">
+            <div class="box">
+              <b>Who I am</b>
+              <p>
+                I’m Iqbal Hossain — online I go by <b>Pumba</b>. I’m a calm person who tries to think logically, even when things get stressful.
+                In games I’m average (not a “pro player”), but I enjoy playing and creating content around the moments that feel intense, clean, or emotional.
+              </p>
+              <p style="margin-top:10px;">
+                My editing focus is simple: <b>quality over quantity</b>. I care more about style, mood, pacing, and clean transitions than random flashy cuts.
+                I mainly edit using <b>CapCut</b>, and my skill level is above beginner and still improving toward intermediate.
+              </p>
+              <p style="margin-top:10px;">
+                I’ve posted consistently in the past and grew my channel to <b>700+ subscribers</b> with around <b>225K combined Shorts views</b>
+                (mostly from anime edits). Even when I’m not uploading right now, I still help friends with editing, ideas, and improving their content.
+              </p>
+              <p style="margin-top:10px;">
+                I want to turn content creation into income so I can support my family and build myself up. I’m currently looking for faster exposure and real opportunities,
+                and I’m serious about growth — step by step.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="business">
+      <div class="sectionInner">
+        <h2>Business</h2>
+        <div class="hint">Work & services</div>
+      </div>
+      <div class="content">
+        <div class="grid">
+          <div class="col4">
+            <div class="box">
+              <b>Promos</b>
+              <p>
+                I haven’t done promos yet — but I’m open to paid promo work if it fits my style and audience.
+              </p>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="box">
+              <b>Content packages</b>
+              <p>
+                Shorts/Reels style edits: FPS clips, highlights, montages, anime edits — built with mood + pacing.
+              </p>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="box">
+              <b>Partnerships</b>
+              <p>
+                I’m open to long-term work once the fit is right. Clean communication, consistent delivery, improving every project.
+              </p>
+            </div>
+          </div>
+
+          <div class="col12">
+            <div class="box">
+              <b>Business email</b>
+              <p>
+                <a href="mailto:whitemask10933@gmail.com">whitemask10933@gmail.com</a>
+                <span style="opacity:.75;"> — tell me what you need, deadline, and the style you want.</span>
+              </p>
+              <p style="margin-top:10px;">
+                Fast note: I’m focused on building real income through content right now, so paid work + serious opportunities are my priority.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="social">
+      <div class="sectionInner">
+        <h2>Social</h2>
+        <div class="hint">Where to find me</div>
+      </div>
+      <div class="content">
+        <div class="grid">
+          <div class="col6">
+            <div class="box">
+              <b>YouTube</b>
+              <p><a href="https://youtube.com/@editsenpaisan?si=tJX-Xf8U-zL_AoFx" target="_blank" rel="noopener noreferrer">youtube.com/@editsenpaisan</a></p>
+            </div>
+          </div>
+          <div class="col6">
+            <div class="box">
+              <b>Spotify</b>
+              <p><a href="https://open.spotify.com/user/31mmiudwvwcxrk666p6rb3grse3m?si=f79b29033cfc40ad" target="_blank" rel="noopener noreferrer">Open profile</a></p>
+            </div>
+          </div>
+          <div class="col6">
+            <div class="box">
+              <b>Instagram</b>
+              <p><a href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">@_iqbal_hossain__</a></p>
+            </div>
+          </div>
+          <div class="col6">
+            <div class="box">
+              <b>Facebook</b>
+              <p><a href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Profile</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="sectionInner">
+        <h2>Contact</h2>
+        <div class="hint">Let’s talk</div>
+      </div>
+      <div class="content">
+        <div class="grid">
+          <div class="col12">
+            <div class="box">
+              <b>Email</b>
+              <p><a href="mailto:whitemask10933@gmail.com">whitemask10933@gmail.com</a></p>
+              <p style="margin-top:10px;">
+                If you’re messaging for work, include: what you want edited, the length, the deadline, and any reference style (anime / FPS / montage / highlights).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Pumba. Built for a dark shrine / moonlight vibe.
+    </footer>
   </div>
 
-  <!-- Instagram -->
-  <div class="linkRow">
-    <div class="left">
-      <span class="icon" aria-hidden="true">
-        <!-- Instagram SVG -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path fill="currentColor" d="M7.5 2.7h9A4.8 4.8 0 0 1 21.3 7.5v9a4.8 4.8 0 0 1-4.8 4.8h-9A4.8 4.8 0 0 1 2.7 16.5v-9A4.8 4.8 0 0 1 7.5 2.7Zm0 1.8A3 3 0 0 0 4.5 7.5v9a3 3 0 0 0 3 3h9a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3h-9Zm10.2 1.65a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 1.8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-        </svg>
-      </span>
-      <div>
-        <b>Instagram</b>
-        <small>@_iqbal_hossain__</small>
-      </div>
-    </div>
-    <a class="go" href="https://www.instagram.com/_iqbal_hossain__/" target="_blank" rel="noopener noreferrer">Visit →</a>
-  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
-  <!-- Facebook -->
-  <div class="linkRow">
-    <div class="left">
-      <span class="icon" aria-hidden="true">
-        <!-- Facebook SVG -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path fill="currentColor" d="M12 1.8a10.2 10.2 0 1 0 0 20.4 10.2 10.2 0 0 0 0-20.4Zm1.35 18.35v-6.2h2.05l.35-2.35h-2.4V10.1c0-.68.2-1.15 1.18-1.15h1.35V6.88c-.23-.03-1.02-.1-1.95-.1-1.93 0-3.25 1.18-3.25 3.35v1.47H8.55v2.35h2.08v6.2a8.5 8.5 0 0 1-1.67-.48A8.4 8.4 0 1 1 13.35 20.15Z"/>
-        </svg>
-      </span>
-      <div>
-        <b>Facebook</b>
-        <small>Profile</small>
-      </div>
-    </div>
-    <a class="go" href="https://www.facebook.com/profile.php?id=100087091683993" target="_blank" rel="noopener noreferrer">Open →</a>
-  </div>
-
-  <!-- Discord -->
-  <div class="linkRow">
-    <div class="left">
-      <span class="icon" aria-hidden="true">
-        <!-- Discord SVG -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path fill="currentColor" d="M16.9 6.4a11.1 11.1 0 0 0-2.8-.9l-.3.6a10.5 10.5 0 0 0-3.6 0l-.3-.6c-1 .2-2 .5-2.8.9-1.8 2.7-2.3 5.4-2 8.1a11.4 11.4 0 0 0 3.6 1.8l.5-.8c-.6-.2-1.1-.5-1.6-.9l.4-.3c1.9.9 4.1.9 6 0l.4.3c-.5.4-1 .7-1.6.9l.5.8a11.4 11.4 0 0 0 3.6-1.8c.4-2.9-.4-5.6-2-8.1ZM9.4 13.7c-.6 0-1-.6-1-1.2s.4-1.2 1-1.2 1 .6 1 1.2-.4 1.2-1 1.2Zm5.2 0c-.6 0-1-.6-1-1.2s.4-1.2 1-1.2 1 .6 1 1.2-.4 1.2-1 1.2Z"/>
-        </svg>
-      </span>
-      <div>
-        <b>Discord</b>
-        <small>pumba_008</small>
-      </div>
-    </div>
-    <span class="go" title="Copy manually">pumba_008</span>
-  </div>
-</div>
 
